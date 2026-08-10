@@ -1,0 +1,3 @@
+CREATE POLICY "Anyone can upload invite media" ON storage.objects FOR INSERT TO anon, authenticated WITH CHECK (bucket_id = 'invite-media');
+CREATE POLICY "Anyone can read invite media" ON storage.objects FOR SELECT TO anon, authenticated USING (bucket_id = 'invite-media');
+CREATE POLICY "Anyone can update invite media" ON storage.objects FOR UPDATE TO anon, authenticated USING (bucket_id = 'invite-media') WITH CHECK (bucket_id = 'invite-media');
