@@ -15,6 +15,8 @@ export type Invite = {
   message: string | null;
   phone: string | null;
   is_active: boolean;
+  card_number: string | null;   // ← yangi
+  card_owner: string | null;    // ← yangi
 };
 
 export type Wish = {
