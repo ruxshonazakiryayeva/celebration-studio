@@ -130,7 +130,7 @@ export async function fetchInvite(slug: string): Promise<Invite | null> {
   const { data, error } = await supabase
     .from("invites")
     .select(
-      "id, slug, template_id, event_type, name, age, event_date, location_name, location_url, dress_code, cover_image_url, gallery_urls, music_url, message, phone, is_active",
+      "id, slug, template_id, event_type, name, age, event_date, location_name, location_url, dress_code, cover_image_url, gallery_urls, music_url, message, phone, is_active, card_number, card_owner",
     )
 
     .eq("slug", slug)
