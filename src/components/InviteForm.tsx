@@ -23,10 +23,12 @@ export type InviteFormFiles = {
   music: File | null;
 };
 
+const todayIso = new Date().toISOString().split("T")[0];
+
 export const emptyFormValues: InviteFormValues = {
   name: "",
   age: "",
-  date: "",
+  date: todayIso,
   time: "18:00",
   locationName: "",
   locationUrl: "",
@@ -46,16 +48,16 @@ function Field({
   children: React.ReactNode;
 }) {
   return (
-    <label className="block">
-      <span className="text-[10px] tracking-editorial text-muted-foreground">{label}</span>
+    <div className="block space-y-1">
+      <span className="text-[11px] font-bold uppercase tracking-wider text-foreground/80">{label}</span>
       {children}
-      {hint ? <span className="mt-1 block text-xs text-muted-foreground">{hint}</span> : null}
-    </label>
+      {hint ? <span className="block text-xs text-muted-foreground leading-relaxed">{hint}</span> : null}
+    </div>
   );
 }
 
 const inputClass =
-  "mt-2 w-full rounded-xl border border-input bg-card px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-accent";
+  "mt-1.5 w-full rounded-xl border border-amber-500/30 bg-background px-4 py-3.5 text-sm text-foreground outline-none transition-all duration-200 placeholder:text-muted-foreground/60 focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 shadow-sm cursor-text";
 
 /** Small local-file thumbnail preview with a remove button. Manages its own object URL lifecycle. */
 function FileThumb({ file, onRemove }: { file: File; onRemove: () => void }) {
