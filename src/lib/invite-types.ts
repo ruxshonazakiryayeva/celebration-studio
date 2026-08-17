@@ -15,8 +15,16 @@ export type Invite = {
   message: string | null;
   phone: string | null;
   is_active: boolean;
-  card_number: string | null;   // ← yangi
-  card_owner: string | null;    // ← yangi
+  // Remote & local interactive features
+  card_number?: string | null;
+  card_owner?: string | null;
+  envelope_style?: "gold" | "rose" | "emerald" | "classic" | string;
+  seal_text?: string;
+  gift_card_number?: string | null;
+  gift_card_bank?: string | null;
+  gift_card_holder?: string | null;
+  rsvp_enabled?: boolean;
+  dress_code_colors?: string[];
 };
 
 export type Wish = {
@@ -24,6 +32,7 @@ export type Wish = {
   guest_name: string;
   message: string;
   created_at: string;
+  attendance?: "yes" | "no" | "family";
 };
 
 export type TemplateComponentProps = {

@@ -26,6 +26,30 @@ export type TemplateMeta = {
 
 export const templates: TemplateMeta[] = [
   {
+    id: "luxury-gold",
+    name: "Ultra Oltin Hashamat",
+    tagline: "Eng sara nikoh va tantanali yubileylar uchun",
+    description:
+      "3D Konvert ochilishi, mum muhr animatsiyasi, qora baxmal va 24k oltin uchqunlari. Vinyl fon musiqasi va interaktiv RSVP bilan eng yuqori darajadagi shablon.",
+    eventType: "birthday",
+    category: "yubiley",
+    palette: ["#18140D", "#2A2419", "#D4AF37", "#FBF5E6"],
+    previewClass: "tpl-gold",
+    Component: lazy(() => import("./LuxuryGoldTemplate")),
+  },
+  {
+    id: "emerald-regal",
+    name: "Qirollik Zumradi",
+    tagline: "Nufuzli va shohona marosimlar uchun",
+    description:
+      "Chuqur zumrad va oltin yaproqlar (gold leafing) bilal bezatilgan shohona uslub. Konvert muhr ochilishi va navigatsiya xaritalari bilan mukammal.",
+    eventType: "birthday",
+    category: "yubiley",
+    palette: ["#081814", "#0C221C", "#10B981", "#F59E0B"],
+    previewClass: "tpl-emerald",
+    Component: lazy(() => import("./EmeraldRegalTemplate")),
+  },
+  {
     id: "nafis-oltin",
     name: "Nafis oltin",
     tagline: "Yubiley va kattalar bayrami uchun",

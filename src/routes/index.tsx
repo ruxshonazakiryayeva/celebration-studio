@@ -96,20 +96,20 @@ const previewMotifs: Record<string, { hero: React.ReactNode; rule: React.ReactNo
 
 const features = [
   {
-    t: "Jonli animatsiyalar",
-    d: "Ochilish pardasi, chizilayotgan naqshlar va scroll bo'yicha yumshoq paydo bo'lish effektlari.",
+    t: "3D Mum Muhrli Konvert",
+    d: "Mehmon taklifnomani ochganda shohona mum muhr (wax seal) yorilib, konvert 3D animatsiya bilan ochiladi.",
   },
   {
-    t: "Bayramgacha sanoq",
-    d: "Har bir taklifnomada real vaqtli taymer — mehmonlar kunni unutmaydi.",
+    t: "Vinyl Fon Musiqasi",
+    d: "Aylanuvchi vinyl pleyer va romantik saundtreklar — taklifnomangizga maxsus bayramona ruh bag'ishlaydi.",
   },
   {
-    t: "Mehmonlar tilaklari",
-    d: "Tashrifni tasdiqlash va tabrik qoldirish — hammasi bitta sahifada.",
+    t: "Interaktiv RSVP va Tilaklar",
+    d: "Mehmonlar tashrifini (Ha / Oilamiz bilan / Afsuski borolmayman) va tabriklarini real vaqtda qoldiradi.",
   },
   {
-    t: "Musiqa va galereya",
-    d: "Fon musiqasi, muqova rasmi va foto galereya bilan to'liq shaxsiylashtiring.",
+    t: "Karta Nusxalash & Navigatsiya",
+    d: "1-bosishda plastik karta raqamini nusxalash hamda Yandex Maps, Google Maps va 2GIS navigatsiyasi.",
   },
 ];
 
@@ -246,6 +246,18 @@ function Home() {
                     <div
                       className={`${t.previewClass} relative overflow-hidden bg-background px-6 py-10 text-center text-foreground`}
                     >
+                      {/* Top Badges */}
+                      <div className="absolute top-3 left-3 z-10 flex flex-wrap gap-1">
+                        {t.id.includes("gold") || t.id.includes("emerald") ? (
+                          <span className="px-2 py-0.5 rounded-full bg-amber-400 text-zinc-950 font-extrabold text-[8px] uppercase tracking-wider shadow-md">
+                            ⭐ Ultra Luxury
+                          </span>
+                        ) : null}
+                        <span className="px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-white font-bold text-[8px] uppercase tracking-wider border border-white/20">
+                          🎵 Musiqali
+                        </span>
+                      </div>
+
                       <div className="pointer-events-none absolute inset-0 bg-grain opacity-30" />
                       <div className="relative">
                         <div className="text-motif transition-transform duration-500 group-hover:-translate-y-1">

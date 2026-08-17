@@ -90,28 +90,49 @@ export function ScheduleBlock({ invite }: { invite: Invite }) {
 
 export function LocationBlock({ invite }: { invite: Invite }) {
   if (!invite.location_name && !invite.location_url) return null;
+  const locationQuery = encodeURIComponent(invite.location_name || "Tashkent");
+
   return (
     <Reveal className="text-center">
       <IconPin className="mx-auto h-11 w-11 text-motif" />
-      <Eyebrow>Manzil</Eyebrow>
+      <Eyebrow>Manzil va Navigatsiya</Eyebrow>
       <SectionHeading>{invite.location_name ?? "Bayram joyi"}</SectionHeading>
       <p className="mt-4 text-sm text-muted-foreground">
         {formatUzDate(invite.event_date)}, soat {formatUzTime(invite.event_date)}
       </p>
-      {invite.location_url ? (
+
+      {/* Interactive Navigation Apps Row */}
+      <div className="mt-7 flex flex-wrap items-center justify-center gap-2.5">
         <a
-          href={invite.location_url}
+          href={invite.location_url || `https://yandex.com/maps/?text=${locationQuery}`}
           target="_blank"
           rel="noreferrer"
-          className="mt-7 inline-flex items-center justify-center rounded-full border border-motif px-8 py-3 text-[11px] tracking-editorial text-motif transition-colors hover:bg-motif hover:text-background"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-amber-500/40 bg-amber-500/10 text-xs font-bold text-amber-300 hover:bg-amber-500 hover:text-zinc-950 transition-all duration-300"
         >
-          Xaritada ko'rish
+          📍 Yandex Maps
         </a>
-      ) : null}
+        <a
+          href={`https://www.google.com/maps/search/?api=1&query=${locationQuery}`}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-blue-500/40 bg-blue-500/10 text-xs font-bold text-blue-300 hover:bg-blue-500 hover:text-white transition-all duration-300"
+        >
+          🗺️ Google Maps
+        </a>
+        <a
+          href={`https://2gis.uz/search/${locationQuery}`}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-emerald-500/40 bg-emerald-500/10 text-xs font-bold text-emerald-300 hover:bg-emerald-500 hover:text-white transition-all duration-300"
+        >
+          🧭 2GIS
+        </a>
+      </div>
+
       {invite.phone ? (
         <p className="mt-6 text-sm text-muted-foreground">
-          Savollar uchun:{" "}
-          <a className="text-foreground underline underline-offset-4" href={`tel:${invite.phone}`}>
+          Tashkiliy savollar uchun:{" "}
+          <a className="text-foreground underline underline-offset-4 font-semibold" href={`tel:${invite.phone}`}>
             {invite.phone}
           </a>
         </p>
@@ -121,28 +142,33 @@ export function LocationBlock({ invite }: { invite: Invite }) {
 }
 
 export function DressCodeBlock({ invite }: { invite: Invite }) {
-  const swatches = parseSwatches(invite.dress_code);
+  const swatches = invite.dress_code_colors?.length
+    ? invite.dress_code_colors
+    : parseSwatches(invite.dress_code);
   const label = dressCodeLabel(invite.dress_code);
   if (!label && swatches.length === 0) return null;
   return (
     <Reveal className="text-center">
       <IconPalette className="mx-auto h-11 w-11 text-motif" />
-      <Eyebrow>Dress-code</Eyebrow>
-      <SectionHeading>Bayram ranglari</SectionHeading>
+      <Eyebrow>Kiyinish Stili</Eyebrow>
+      <SectionHeading>Dress-Code & Rang Palitrasi</SectionHeading>
       {label ? (
         <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
           {label}
         </p>
       ) : null}
       {swatches.length > 0 ? (
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           {swatches.map((c) => (
-            <span
-              key={c}
-              className="h-14 w-14 rounded-full border border-border shadow-soft"
-              style={{ backgroundColor: c }}
-              title={c}
-            />
+            <div key={c} className="flex flex-col items-center gap-1 group">
+              <span
+                className="h-12 w-12 rounded-full border border-white/20 shadow-lg transition-transform group-hover:scale-110"
+                style={{ backgroundColor: c }}
+              />
+              <span className="text-[9px] uppercase font-mono text-muted-foreground opacity-70">
+                {c}
+              </span>
+            </div>
           ))}
         </div>
       ) : null}
