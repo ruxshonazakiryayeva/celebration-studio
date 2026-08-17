@@ -44,27 +44,37 @@ export default function LuxuryGoldTemplate({ invite }: TemplateComponentProps) {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-radial from-amber-400/10 via-transparent to-transparent blur-3xl" />
       </div>
 
+      {/* Corner Ornaments */}
+      <div className="pointer-events-none fixed inset-4 z-20 border border-amber-400/20 rounded-3xl" />
+      <div className="pointer-events-none absolute top-6 left-6 text-amber-400/40 z-20">
+        <svg width="40" height="40" viewBox="0 0 80 80" fill="none"><path d="M4 4 L4 40 M4 4 L40 4" stroke="currentColor" strokeWidth="2" /><circle cx="4" cy="4" r="3" fill="currentColor" /></svg>
+      </div>
+      <div className="pointer-events-none absolute top-6 right-6 text-amber-400/40 z-20">
+        <svg width="40" height="40" viewBox="0 0 80 80" fill="none"><path d="M76 4 L76 40 M76 4 L40 4" stroke="currentColor" strokeWidth="2" /><circle cx="76" cy="4" r="3" fill="currentColor" /></svg>
+      </div>
+
       {/* Hero Header */}
       <header className="relative z-10 overflow-hidden px-6 pb-16 pt-24 text-center sm:pt-32">
         <div className="mx-auto max-w-xl">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-400/30 bg-amber-400/10 text-[10px] font-bold uppercase tracking-[0.3em] text-amber-300 mb-6">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-spin" style={{ animationDuration: "5s" }} />
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-amber-400/40 bg-amber-400/10 text-[10px] font-bold uppercase tracking-[0.3em] text-amber-300 mb-6 shadow-gold-glow">
+            <Sparkles className="w-4 h-4 text-amber-400 animate-spin" style={{ animationDuration: "5s" }} />
             <span>Tantanali Taklifnoma</span>
-            <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-spin" style={{ animationDuration: "5s" }} />
+            <Sparkles className="w-4 h-4 text-amber-400 animate-spin" style={{ animationDuration: "5s" }} />
           </div>
 
           <MotifLaurel className="mx-auto h-28 w-20 text-amber-400 draw-stroke drop-shadow-md" />
           
-          <p className="mt-6 text-xs uppercase tracking-[0.35em] text-amber-300/80 font-medium">
+          <p className="mt-6 text-xs uppercase tracking-[0.35em] text-amber-300/80 font-marcellus font-semibold">
             Sizni qadrdonlar davrasiga taklif etamiz
           </p>
 
-          <h1 className="mt-6 font-serif text-5xl sm:text-7xl leading-[1.05] tracking-tight bg-gradient-to-r from-amber-200 via-amber-400 to-amber-100 bg-clip-text text-transparent font-normal drop-shadow-lg">
+          {/* Calligraphy Name Header */}
+          <h1 className="mt-4 font-great-vibes text-6xl sm:text-8xl leading-tight tracking-wide text-gradient-gold drop-shadow-2xl">
             {invite.name}
           </h1>
 
           {invite.age ? (
-            <p className="mt-4 font-serif text-2xl text-amber-300/90 sm:text-3xl">
+            <p className="mt-2 font-cormorant text-2xl text-amber-300/90 sm:text-3xl italic">
               {invite.age} yoshlik tantanali yubiley
             </p>
           ) : null}

@@ -1,8 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Marcellus&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Allura&family=Jost:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+/* Luxury Gold Utilities */
+.font-great-vibes {
+  font-family: 'Great Vibes', cursive, cursive;
+}
+
+.font-cormorant {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-marcellus {
+  font-family: 'Marcellus', Georgia, serif;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #FFF0B3 0%, #F5C542 35%, #D4AF37 70%, #997A15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient-gold {
+  background: linear-gradient(135deg, #F5C542 0%, #D4AF37 50%, #997A15 100%);
+}
+
+.shadow-gold-glow {
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.35);
+}
 
 /*
  * Digital taklifnoma — design system.
